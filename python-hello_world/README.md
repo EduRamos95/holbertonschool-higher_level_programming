@@ -109,9 +109,9 @@
     -  Your script should be maximum 98 characters long (please check with `wc -m 9-easter_egg.py`)
 
 ##### Tasks advanced
-- [ ] `10. Hello, write`:*Write a Python script that prints exactly `and that piece of art is useful - Dora Korpar, 2015-10-19`, followed by a new line.*
-- [ ] `11. Compile`:*Write a script that compiles a Python script file.*
-- [ ] `12. ByteCode -> Python #1`:*Write the Python function `def magic_calculation(a, b):` that does exactly the same as the following Python bytecode:*
+- [x] `10. Hello, write`:*Write a Python script that prints exactly `and that piece of art is useful - Dora Korpar, 2015-10-19`, followed by a new line.*
+- [x] `11. Compile`:*Write a script that compiles a Python script file.*
+- [x] `12. ByteCode -> Python #1`:*Write the Python function `def magic_calculation(a, b):` that does exactly the same as the following Python bytecode:*
 
 
 ---
