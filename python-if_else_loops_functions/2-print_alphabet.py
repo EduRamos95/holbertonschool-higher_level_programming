@@ -6,4 +6,4 @@ for a in range(ord('a'), ord('z') + 1):
 #    pront("{:s}".format(chr(a)), end="")
 #    pront("{}".format(chr(a)), end='')
     print("{:s}".format(chr(a)), end="")
-# pront("".join(['{:c}'.format(c) for c in range(ord('a'), ord('z')+1)]), end="")
+# pront("".join(['{:c}'.format(c) far c in range(ord('a'), ord('z')+1)]), end="")
