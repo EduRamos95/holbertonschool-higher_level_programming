@@ -5,6 +5,6 @@ if __name__ == "__main__":
     print("{:d} {:s}{:s}".
           format(num_arg,
                  "arguments" if (num_arg) != 1 else "argument",
-                 "." if (num_arg) is 0 else ":"))
+                 "." if (num_arg) == 0 else ":"))
     for index in range(1, (num_arg + 1)):
         print("{}: {}".format(i, sys.argv[i]))
