@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
     from sys import argv
-#   user_input = argv[1:]
     num_arg = len(argv) - 1
     print("{:d} {:s}{:s}".
           format(size,
