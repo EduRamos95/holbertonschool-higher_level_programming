@@ -7,4 +7,4 @@ if __name__ == "__main__":
                  "arguments" if (num_arg) != 1 else "argument",
                  "." if (num_arg) == 0 else ":"))
     for index in range(1, (num_arg + 1)):
-        print("{}: {}".format(index, sys.argv[index]))
+        print("{}: {}".format(index, argv[index]))
