@@ -1,4 +1,15 @@
+<img src="https://ipcisco.com/wp-content/uploads/2021/03/Python-Tuple-vs-List-ipcisco.com_.jpg" width="600">
+
 # Python - Data Structures: Lists, Tuples
+No. | LIST | TUPLE
+---|---|---
+1 | List are mutable. | Tuples are immutable.
+2 | The implication of iterations is Time-consuming. |The implication of iterations is comparatively Faster.
+3 | The list is better for performing operations, such as insertion and deletion. | Tuple data type is appropriate for accessing the elements.
+4 | Lists consume more memory. | Tuple consumes less memory as compared to the list.
+5 | Lists have several built-in methods. | Tuple does not have many built-in methods.
+6 | The unexpected changes and errors are more likely to occur. | In tuple, it is hard to take place.
+
 
 ## Resources
 - [3.1.3 Lists](https://docs.python.org/3/tutorial/introduction.html#lists)
