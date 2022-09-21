@@ -3,4 +3,5 @@
 
 
 class Square:
+    """Square: Is empty"""
     pass
