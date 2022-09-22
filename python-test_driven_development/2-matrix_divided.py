@@ -3,6 +3,14 @@
 
 
 def matrix_divided(matrix, div):
+    """
+    Divide each element of `matrix` by `div` with type checking
+
+    Function is structured as follows:
+    1. Check to see if div is the correct type, and is not zero
+    2. Check to see if matrix is well-formed, copy the matrix, and divide
+    3. Return the new matrix.
+    """
     if type(matrix) is not list or len(matrix) is 0:
         raise TypeError("matrix must be a matrix (list of lists)"
               " of integers/floats")
@@ -13,7 +21,7 @@ def matrix_divided(matrix, div):
         raise ZeroDivisionError("division by zero")
     if type(matrix[0]) is not list:
         raise TypeError("matrix must be a matrix (list of lists)"
-                        " of integers/floats")
+              " of integers/floats")
     rowlen = len(matrix[0])
     newmatrix = []
     for row in matrix:
