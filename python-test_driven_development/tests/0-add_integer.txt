@@ -37,6 +37,22 @@ Test use of default b=98 value:
      >>> print(add_integer(1))
      99
 
+Test special float NaN in Python (not a number):
+     >>> print(add_integer(float("NaN")))
+     Traceback (most recent call last):
+     ...
+     ValueError: cannot convert float NaN to integer
+
+Test max/min numbers Python can handle ("inf" is infinity):
+     >>> print(add_integer(float("inf")))
+     Traceback (most recent call last):
+     ...
+     OverflowError: cannot convert float infinity to integer
+     >>> print(add_integer(float("-inf")))
+     Traceback (most recent call last):
+     ...
+     OverflowError: cannot convert float infinity to integer
+
 On Errors:
     >>> print(add_integer(4, "School"))
     Traceback (most recent call last):
