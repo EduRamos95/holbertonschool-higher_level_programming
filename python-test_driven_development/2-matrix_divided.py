@@ -13,7 +13,7 @@ def matrix_divided(matrix, div):
     """
     if type(matrix) is not list or len(matrix) is 0:
         raise TypeError("matrix must be a matrix (list of lists)"
-              " of integers/floats")
+                        " of integers/floats")
     if type(div) is not float and type(div) is not int\
        and type(div) is not bool:
         raise TypeError("div must be a number")
@@ -21,7 +21,7 @@ def matrix_divided(matrix, div):
         raise ZeroDivisionError("division by zero")
     if type(matrix[0]) is not list:
         raise TypeError("matrix must be a matrix (list of lists)"
-              " of integers/floats")
+                        " of integers/floats")
     rowlen = len(matrix[0])
     newmatrix = []
     for row in matrix:
