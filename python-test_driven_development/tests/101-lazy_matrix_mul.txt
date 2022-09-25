@@ -1,6 +1,6 @@
 The 101-lazy_matrix_mul Module:
 
-    >>> add_integer = __import__("101-lazy_matrix_mul").lazy_matrix_mul
+    >>> lazy_matrix_mul = __import__("101-lazy_matrix_mul").lazy_matrix_mul
 
 Make Sure Documentation Exists:
 
@@ -14,7 +14,7 @@ Make Sure Documentation Exists:
 
 Correct Usage:
 
-    >>> print(matrix_mul([[-2.0, -3.0]], [[-2.0], [-4.0]]))
+    >>> print(lazy_matrix_mul([[-2.0, -3.0]], [[-2.0], [-4.0]]))
      [[16.0]]
 
 On Errors:
