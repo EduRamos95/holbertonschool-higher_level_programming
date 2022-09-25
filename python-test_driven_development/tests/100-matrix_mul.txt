@@ -62,6 +62,13 @@ Test matrix with other data types:
      ...
      TypeError: m_a should contain only integers or floats
 
+     >>> m_a = [[1, 2], [1, 2]]
+     >>> m_b = [["hey"], ["you"]]
+     >>> print(matrix_mul(m_a, m_b))
+     Traceback (most recent call last):
+     ...
+     TypeError: m_b should contain only integers or floats
+
      >>> m_a = (1, 2)
      >>> m_b = [[1, 2], [1, 2]]
      >>> print(matrix_mul(m_a, m_b))
