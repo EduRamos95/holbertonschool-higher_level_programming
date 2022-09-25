@@ -75,3 +75,29 @@ Test matrix with other data types:
      Traceback (most recent call last):
      ...
      TypeError: m_b must be a list
+
+Test matrix with 1 argument:
+     >>> m_b = [[1, 2], [1, 2]]
+     >>> print(matrix_mul( , m_b))
+     Traceback (most recent call last):
+     ...
+     SyntaxError: invalid syntax
+
+     >>> m_b = [[1, 2], [1, 2]]
+     >>> print(matrix_mul(, m_b))
+     Traceback (most recent call last):
+     ...
+     SyntaxError: invalid syntax
+
+     >>> m_a = [[1, 2], [1, 2]]
+     >>> print(matrix_mul(m_a))
+     Traceback (most recent call last):
+     ...
+     TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+
+Test matrix with not argument:
+     >>> print(matrix_mul())
+     Traceback (most recent call last):
+     ...
+     TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
