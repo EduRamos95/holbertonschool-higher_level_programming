@@ -42,6 +42,8 @@ class TestMaxInteger(unittest.TestCase):
             max_integer([-10, 0.5, "str", {1, 2}])
         with self.assertRaises(TypeError):
             max_integer([None, True])
+        with self.assertRaises(TypeError):
+            max_integer([2, 5], (3, 4, 5))
 
     def test_None(self):
         self.assertIsNone(max_integer([]), None)
