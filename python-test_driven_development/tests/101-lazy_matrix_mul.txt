@@ -14,12 +14,15 @@ Make Sure Documentation Exists:
 
 Correct Usage:
 
-    >>> print(lazy_matrix_mul(1, 2))
-    3
+    >>> print(matrix_mul([[-2.0, -3.0]], [[-2.0], [-4.0]]))
+     [[16.0]]
 
 On Errors:
 
     >>> print(lazy_matrix_mul(4, "School"))
     Traceback (most recent call last):
     ...
-    TypeError: b must be an integer
+    ValueError: Scalar operands are not allowed, use '*' instead
+
+    >>> print(lazy_matrix_mul(1, 2))
+    ValueError: Scalar operands are not allowed, use '*' instead
