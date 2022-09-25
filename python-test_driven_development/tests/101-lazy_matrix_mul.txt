@@ -21,4 +21,5 @@ On Errors:
 
     >>> print(lazy_matrix_mul(4, "School"))
     Traceback (most recent call last):
+    ...
     TypeError: b must be an integer
