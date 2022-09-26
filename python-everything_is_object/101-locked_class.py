@@ -8,7 +8,7 @@ Control dynamically created instance attributes
 
 class LockedClass:
     """
-    prevents user from creating a new instance attribute 
+    prevents user from creating a new instance attribute
     dynamically unless attribute is "first_name"
     """
 
