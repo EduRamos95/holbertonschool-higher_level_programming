@@ -12,7 +12,7 @@
 - How to override a method or attribute inherited from the base class
 - Which attributes or methods are available by heritage to subclasses
 - What is the purpose of inheritance
-- What are, when and how to use 'isinstance', 'issubclass', 'type' and 'super' built-in functions
+- What are, when and how to use `isinstance`, `issubclass`, `type` and `super` built-in functions
 
 ---
 ##### Author
