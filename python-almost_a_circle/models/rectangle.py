@@ -9,6 +9,7 @@ T2 : Class constructor __init__
 T3 : adding validation of all setter methods and instantiation
 T4 : adding public method 'def area(self)'
 T5 : adding public mehtod 'def display(self)'
+T6 : modify method __str__ '[Rectangle] (<id>) <x>/<y> - <width>/<height>'
 """
 from models.base import Base
 
@@ -26,6 +27,8 @@ class Rectangle(Base):
         @property: width. height, x, y
         @setter: width, height, x, y
         area(self)
+        display(self)
+        __str__(self)
     """
 
     def validate_parameter_int(self, value, param):
@@ -97,3 +100,11 @@ class Rectangle(Base):
         for i in range(self.height):
             rectangle += ("#" * self.width) + '\n'
         print(rectangle, end='')
+
+    def __str__(self):
+        str_rectangle = "[Rectangle] "
+        str_id = "({:d}) ".format(self.id)
+        str_xy = "{:d}/{:d} ".format(self.x, self.y)
+        str_sep = "- "
+        str_wh = "{:d}/{:d}".format(self.width, self.height)
+        return (str_rectangle + str_id + str_xy + str_sep + str_wh)
