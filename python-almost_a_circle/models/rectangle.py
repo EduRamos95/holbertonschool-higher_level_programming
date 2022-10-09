@@ -12,6 +12,7 @@ T5 : adding public mehtod 'def display(self)'
 T6 : modify method __str__ '[Rectangle] (<id>) <x>/<y> - <width>/<height>'
 T7 : improving public mehod 'def display(self)'
 T8 : adding public method 'def update(self, *args)'
+T9 : modify public method 'def update(self, *args, **kwargs)
 """
 from models.base import Base
 
@@ -113,10 +114,19 @@ class Rectangle(Base):
         str_wh = "{:d}/{:d}".format(self.width, self.height)
         return (str_rectangle + str_id + str_xy + str_sep + str_wh)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         update attributes in object
         """
+        argc = len(args)
+        kwargc = len(kwargs)
         list_attr = ['id', 'width', 'height', 'x', 'y']
-        for i in range(len(args)):
-            setattr(self, list_attr[i], args[i])
+        if argc > 5:
+            argc = 5
+        if args is not None and len(args) is not 0:
+            for i in range(argc):
+                setattr(self, list_attr[i], args[i])
+        else:
+            for key, value in kwargs.items():
+                if key in list_attr:
+                    setattr(self, key, value)
