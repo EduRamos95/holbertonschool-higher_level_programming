@@ -8,6 +8,7 @@ T2 : Private instance attributes,
 T2 : Class constructor __init__
 T3 : adding validation of all setter methods and instantiation
 T4 : adding public method 'def area(self)'
+T5 : adding public mehtod 'def display(self)'
 """
 from models.base import Base
 
@@ -86,4 +87,13 @@ class Rectangle(Base):
         """
         rectangle area
         """
-        return (self.__width * self.__height)
+        return (self.width * self.height)
+
+    def display(self):
+        """
+        graphical representation
+        """
+        rectangle = ""
+        for i in range(self.height):
+            rectangle += ("#" * self.width) + '\n'
+        print(rectangle, end='')
