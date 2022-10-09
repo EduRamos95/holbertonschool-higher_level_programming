@@ -10,6 +10,7 @@ T3 : adding validation of all setter methods and instantiation
 T4 : adding public method 'def area(self)'
 T5 : adding public mehtod 'def display(self)'
 T6 : modify method __str__ '[Rectangle] (<id>) <x>/<y> - <width>/<height>'
+T7 : improving public mehod 'def display(self)'
 """
 from models.base import Base
 
@@ -97,7 +98,9 @@ class Rectangle(Base):
         graphical representation
         """
         rectangle = ""
+        rectangle += self.y * '\n'
         for i in range(self.height):
+            rectangle += (" " * self.x)
             rectangle += ("#" * self.width) + '\n'
         print(rectangle, end='')
 
