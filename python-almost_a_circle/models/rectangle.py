@@ -7,6 +7,7 @@ T2 : Private instance attributes,
      (__width,__height,__x,__y)
 T2 : Class constructor __init__
 T3 : adding validation of all setter methods and instantiation
+T4 : adding public method 'def area(self)'
 """
 from models.base import Base
 
@@ -23,6 +24,7 @@ class Rectangle(Base):
         __init__(self, width, height, x=0, y=0, id=None)
         @property: width. height, x, y
         @setter: width, height, x, y
+        area(self)
     """
 
     def validate_parameter_int(self, value, param):
@@ -79,3 +81,6 @@ class Rectangle(Base):
     def y(self, value):
         self.validate_parameter_int(value, 'y')
         self.__y = value
+
+    def area(self):
+        return (self.__width * self.__height)
