@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """
 Module Square
-T1 : Class Square inherits from Rectangle
-T1 : Class constructor: def __init__(self, size, x=0, y=0, id=None)
-T1 : Modify method __str__ return '[Square] (<id>) <x>/<y> - <size>'
+T10 : Class Square inherits from Rectangle
+T10 : Class constructor: def __init__(self, size, x=0, y=0, id=None)
+T10 : Modify method __str__ return '[Square] (<id>) <x>/<y> - <size>'
+T11 : adding public getter and setter 'size'
 """
 from models.rectangle import Rectangle
 
@@ -26,6 +27,8 @@ class Square(Rectangle):
     Methods:
         __init__(self, size, x=0, y=0, id=None)
         __str__
+        @property: size
+        @setter: size
     """
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
@@ -37,3 +40,12 @@ class Square(Rectangle):
         str_sep = "- "
         str_size = "{:d}".format(self.width)
         return (str_square + str_id + str_xy + str_sep + str_size)
+
+    @property
+    def size(self):
+        return (self.width)
+
+    @size.setter
+    def size(self, value):
+        self.width = value
+        self.height = value
