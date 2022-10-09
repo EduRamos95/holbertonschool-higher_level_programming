@@ -29,6 +29,7 @@ class Rectangle(Base):
         """
         Validate parameter
         """
+
         if type(value) is not int:
             raise TypeError(param + ' must be an integer')
         if value <= 0 and param in ('width', 'height'):
@@ -49,7 +50,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        validate_parameter_int(value, 'width')
+        self.validate_parameter_int(value, 'width')
         self.__width = value
 
     @property
@@ -58,7 +59,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
-        validate_parameter_int(value, 'height')
+        self.validate_parameter_int(value, 'height')
         self.__height = value
 
     @property
@@ -67,7 +68,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        validate_parameter_int(value, 'x')
+        self.validate_parameter_int(value, 'x')
         self.__x = value
 
     @property
@@ -76,5 +77,5 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        validate_parameter_int(value, 'y')
+        self.validate_parameter_int(value, 'y')
         self.__y = value
