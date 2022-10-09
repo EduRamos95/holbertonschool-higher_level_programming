@@ -11,6 +11,7 @@ T4 : adding public method 'def area(self)'
 T5 : adding public mehtod 'def display(self)'
 T6 : modify method __str__ '[Rectangle] (<id>) <x>/<y> - <width>/<height>'
 T7 : improving public mehod 'def display(self)'
+T8 : adding public method 'def update(self, *args)'
 """
 from models.base import Base
 
@@ -111,3 +112,11 @@ class Rectangle(Base):
         str_sep = "- "
         str_wh = "{:d}/{:d}".format(self.width, self.height)
         return (str_rectangle + str_id + str_xy + str_sep + str_wh)
+
+    def update(self, *args):
+        """
+        update attributes in object
+        """
+        list_attr = ['id', 'width', 'height', 'x', 'y']
+        for i in range(len(args)):
+            setattr(self, list_attr[i], args[i])
