@@ -13,6 +13,7 @@ T6 : modify method __str__ '[Rectangle] (<id>) <x>/<y> - <width>/<height>'
 T7 : improving public mehod 'def display(self)'
 T8 : adding public method 'def update(self, *args)'
 T9 : modify public method 'def update(self, *args, **kwargs)
+T13 : adding public method 'def to_dictionary(self)'
 """
 from models.base import Base
 
@@ -130,3 +131,13 @@ class Rectangle(Base):
             for key, value in kwargs.items():
                 if key in list_attr:
                     setattr(self, key, value)
+
+    def to_dictionary(self):
+        """
+        return a dictionary with properties
+        """
+        list_attr = ['id', 'width', 'height', 'x', 'y']
+        dict_rect = {}
+        for key in list_attr:
+            dict_rect[key] = getattr(self, key)
+        return dict_rect
