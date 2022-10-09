@@ -5,6 +5,7 @@ T10 : Class Square inherits from Rectangle
 T10 : Class constructor: def __init__(self, size, x=0, y=0, id=None)
 T10 : Modify method __str__ return '[Square] (<id>) <x>/<y> - <size>'
 T11 : adding public getter and setter 'size'
+T12 : adding the public method 'def update(self, *args, **kwargs)'
 """
 from models.rectangle import Rectangle
 
@@ -49,3 +50,27 @@ class Square(Rectangle):
     def size(self, value):
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        """
+        update attributes in object
+        """
+        argc = len(args)
+        kwargc = len(kwargs)
+        list_attr = ['id', 'size', 'x', 'y']
+        if argc > 4:
+            argc = 4
+        if args is not None and len(args) is not 0:
+            for i in range(argc):
+                if list_attr[i] == 'size':
+                    setattr(self, 'width', args[i])
+                    setattr(self, 'height', args[i])
+                else:
+                    setattr(self, list_atr[i], args[i])
+        else:
+            for key, value in kwargs.items():
+                if key == 'size':
+                    setattr(self, 'width', value)
+                    setattr(self, 'height', value)
+                else:
+                    setattr(self, key, value)
