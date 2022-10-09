@@ -6,6 +6,7 @@ T2 : Private instance attributes,
      each with its own public getter and setter
      (__width,__height,__x,__y)
 T2 : Class constructor __init__
+T3 : adding validation of all setter methods and instantiation
 """
 from models.base import Base
 
@@ -18,10 +19,19 @@ class Rectangle(Base):
     Class Attributes:
         __width __height __x __y
     Methods:
+        validate_parameter_int(self, value, param)
         __init__(self, width, height, x=0, y=0, id=None)
         @property: width. height, x, y
         @setter: width, height, x, y
     """
+
+    def validate_parameter_int(self, value, param):
+        if type(value) is not int:
+            raise TypeError(param + ' must be an integer')
+        if value <= 0 and param in ('width', 'height'):
+            raise ValueError(param + ' must be > 0')
+        if value < 0 and param in ('x', 'y'):
+            raise ValueError(param + ' must be >= 0')
 
     def __init__(self, width, height, x=0, y=0, id=None):
         super().__init__(id)
@@ -36,6 +46,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
+        validate_parameter_int(value, 'width')
         self.__width = value
 
     @property
@@ -44,6 +55,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
+        validate_parameter_int(value, 'height')
         self.__height = value
 
     @property
@@ -52,6 +64,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
+        validate_parameter_int(value, 'x')
         self.__x = value
 
     @property
@@ -60,4 +73,5 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
+        validate_parameter_int(value, 'y')
         self.__y = value
