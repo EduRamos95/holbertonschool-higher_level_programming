@@ -7,6 +7,7 @@ T2 : Private instance attributes,
      (__width,__height,__x,__y)
 T2 : Class constructor __init__
 """
+from models.base import Base
 
 
 class Rectangle(Base):
