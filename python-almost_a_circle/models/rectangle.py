@@ -26,6 +26,9 @@ class Rectangle(Base):
     """
 
     def validate_parameter_int(self, value, param):
+        """
+        Validate parameter
+        """
         if type(value) is not int:
             raise TypeError(param + ' must be an integer')
         if value <= 0 and param in ('width', 'height'):
