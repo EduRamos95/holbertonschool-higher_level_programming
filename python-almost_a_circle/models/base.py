@@ -85,7 +85,7 @@ class Base():
         filename = "{}.json".format(cls.__name__)
         list_to_load = []
         if os.path.exists(filename) is False:
-            return ([])
+            return []
         with open(filename, "r", encoding="utf-8") as fd:
             list_str = fd.read()
         list_cls = cls.from_json_string(list_str)
