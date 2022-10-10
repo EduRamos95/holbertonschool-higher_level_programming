@@ -4,6 +4,7 @@ Module Base
 T1: Contains private class __nb_objects, and class constructor __init__
 T15: adding static method 'def to_json_string(list_dictionaries)'
 """
+import json
 
 
 class Base():
