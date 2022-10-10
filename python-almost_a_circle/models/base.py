@@ -63,7 +63,7 @@ class Base():
         """
         if json_string is None or len(json_string) == 0:
             json_string = "[]"
-        return (json.loads(json_stringi))
+        return (json.loads(json_string))
 
     @classmethod
     def create(cls, **dictionary):
@@ -85,10 +85,10 @@ class Base():
         filename = "{}.json".format(cls.__name__)
         if os.path.exists(filename) is False:
             return []
-        with open(filename, "r", encoding="utf-8") as fd:
+        with open(filename, "r") as fd:
             list_str = fd.read()
-        list_cls = cls.from_json_string(list_str)
-        list_to_load = []
-        for i in range(len(list_cls)):
-            list_to_load.append(cls.create(**list_cls[i]))
-        return (list_to_load)
+            list_cls = cls.from_json_string(list_str)
+            list_to_load = []
+            for i in range(len(list_cls)):
+                list_to_load.append(cls.create(**list_cls[i]))
+            return (list_to_load)
