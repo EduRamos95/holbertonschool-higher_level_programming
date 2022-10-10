@@ -102,46 +102,37 @@ class Base():
         Method that saves a CSV file
         """
         filename = "{}.csv".format(cls.__name__)
-        if cls.__name__ == "Rectangle":
-            list_dic = [0, 0, 0, 0, 0]
-            list_keys = ['id', 'width', 'height', 'x', 'y']
-        elif cls.__name__ == "Square":
-            list_dic = ['0', '0', '0', '0']
-            list_keys = ['id', 'size', 'x', 'y']
-        matrix = []
-        if list_objs is None or len(list_objs) == 0:
-            pass
-        else:
-            for obj in list_objs:
-                for kv in range(len(list_keys)):
-                    list_dic[kv] = obj.to_dictionary()[list_keys[kv]]
-                matrix.append(list_dict[:])
-        with open(filename, "w") as fd:
+        with open(filename, "w", newline='') as fd:
             writer = csv.writer(fd)
-            writer.writerows(matrix)
+            for o in list_objs:
+                if cls.__name__ == "Rectangle":
+                    writer.writerow([o.id, o.width, o.height, o.x, o.y])
+                if cls.__name__ == "Square":
+                    writer.writerow([o.id, o.size, o.x, o.y])
 
     @classmethod
     def load_from_file_csv(cls):
         """
         Method that loads a CSV file
         """
+        objs = []
         filename = "{}.csv".format(cls.__name__)
         if os.path.exists(filename) is False:
             return []
-        with open(filename, 'r') as fd:
+        with open(filename, 'r', newline='') as fd:
             reader = csv.reader(fd)
-            csv_list = list(reader)
-        if cls.__name__ == "Rectangle":
-            list_keys = ['id', 'width', 'height', 'x', 'y']
-        elif cls.__name__ == "Square":
-            list_keys = ['id', 'size', 'x', 'y']
-        matrix = []
-        for csv_elem in csv_list:
-            dict_csv = {}
-            for kv in enumerate(csv_elem):
-                dict_csv[list_keys[kv[0]]] = int(kv[1])
-            matrix.append(dict_csv)
-        list_ins = []
-        for index in range(len(matrix)):
-            list_ins.append(cls.create(**matrix[index]))
-        return list_ins
+            for row in reader:
+                if cls.__name__ == "Rectangle":
+                    dic = {"id": int(row[0]),
+                           "width": int(row[1]),
+                           "height": int(row[2]),
+                           "x": int(row[3]),
+                           "y": int(row[4])}
+                if cls.__name__ == "Square":
+                    dic = {"id": int(row[0]),
+                           "size": int(row[1]),
+                           "x": int(row[2]),
+                           "y": int(row[3])}
+                o = cls.create(**dic)
+                objs.append(o)
+        return objs
