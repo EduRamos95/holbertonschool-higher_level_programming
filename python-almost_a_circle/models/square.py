@@ -80,6 +80,9 @@ class Square(Rectangle):
                         setattr(self, key, value)
 
     def to_dictionary(self):
+        """
+        return a dictionary with attributes
+        """
         list_attr = ['id', 'size', 'x', 'y']
         dict_square = {}
         for key in list_attr:
