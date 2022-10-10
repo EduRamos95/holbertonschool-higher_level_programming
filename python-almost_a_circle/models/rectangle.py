@@ -33,6 +33,8 @@ class Rectangle(Base):
         area(self)
         display(self)
         __str__(self)
+        update(self)
+        to_dictionary(self)
     """
 
     def validate_parameter_int(self, value, param):
@@ -134,7 +136,7 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """
-        return a dictionary with properties
+        return a dictionary with attributes
         """
         list_attr = ['id', 'width', 'height', 'x', 'y']
         dict_rect = {}
