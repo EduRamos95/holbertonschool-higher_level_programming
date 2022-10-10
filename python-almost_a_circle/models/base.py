@@ -47,4 +47,3 @@ class Base():
                 list_dict.append(cls.to_dictionary(obj))
         with open(filename, "w", encoding="utf-8") as fd:
             fd.write(cls.to_json_string(list_dict))
-        
