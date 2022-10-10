@@ -3,6 +3,7 @@
 Module Base
 T1: Contains private class __nb_objects, and class constructor __init__
 T15: adding static method 'def to_json_string(list_dictionaries)'
+T16: adding class method 'def save_to_file(cls, list_objs)'
 """
 import json
 
@@ -33,3 +34,17 @@ class Base():
         if list_dictionaries is None or list_dictionaries == []:
             return ("[]")
         return (json.dumps(list_dictionaries))
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """
+        Save json strings of all instances into file
+        """
+        filename = "{}.json".format(cls.__name__)
+        list_dict = []
+        if list_objs is not None:
+            for obj in list_objs:
+                list_dict.append(cls.to_dictionary(obj))
+        with open(filename, "w", encoding="utf-8") as fd:
+            fd.write(cls.to_json_string(list_dict))
+        
