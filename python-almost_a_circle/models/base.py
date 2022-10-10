@@ -6,8 +6,10 @@ T15: adding static method 'def to_json_string(list_dictionaries)'
 T16: adding class method 'def save_to_file(cls, list_objs)'
 T17: adding static method 'def from_json_string(json_string)'
 T18: adding class method 'def create(cls, **dictionary)'
+T19: adding class method 'def load_from_file(cls)'
 """
 import json
+import os.path
 
 
 class Base():
@@ -74,3 +76,19 @@ class Base():
             simple_create = cls(1)
         simple_create.update(**dictionary)
         return (simple_create)
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Return a list of instances
+        """
+        filename = "{}.json".format(cls.__name__)
+        list_to_load = []
+        if os.path.exists(filename) is False:
+            return ([])
+        with open(filename, "r", encoding="utf-8") as fd:
+            list_str = fd.read()
+        list_cls = cls.from_json_string(list_str)
+        for i in range(len(list_cls)):
+            list_to_load.append(cls.create(**list_cls[i]))
+        return (list_to_load)
