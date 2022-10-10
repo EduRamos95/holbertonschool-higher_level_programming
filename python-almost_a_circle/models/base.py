@@ -7,9 +7,12 @@ T16: adding class method 'def save_to_file(cls, list_objs)'
 T17: adding static method 'def from_json_string(json_string)'
 T18: adding class method 'def create(cls, **dictionary)'
 T19: adding class method 'def load_from_file(cls)'
+T20: adding class method 'def save_to_file_csv(cls, list_objs)'
+T20: adding class method 'def load_from_file_csv(cls)'
 """
 import json
 import os.path
+import csv
 
 
 class Base():
@@ -92,3 +95,53 @@ class Base():
             for i in range(len(list_cls)):
                 list_to_load.append(cls.create(**list_cls[i]))
             return (list_to_load)
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Method that saves a CSV file
+        """
+        filename = "{}.csv".format(cls.__name__)
+		if cls.__name__ == "Rectangle":
+            list_dic = [0, 0, 0, 0, 0]
+            list_keys = ['id', 'width', 'height', 'x', 'y']
+        elif cls.__name__ == "Square":
+            list_dic = ['0', '0', '0', '0']
+            list_keys = ['id', 'size', 'x', 'y']
+        matrix = []
+		if list_objs is None or len(list_objs) == 0:
+            pass
+        else:
+            for obj in list_objs:
+                for i in range(len(list_keys)):
+                    list_dic[i] = obj.to_dictionary()[list_keys[i]]
+                matrix.append(list_dict[:])
+        with open(filename, "w") as fd:
+            writer = csv.writer(fd)
+            writer.writerows(matrix)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Method that loads a CSV file
+        """
+        filename = "{}.csv".format(cls.__name__)
+        if os.path.exists(filename) is False:
+            return []
+        with open(filename, 'r') as fd:
+             reader = csv.reader(fd)
+             csv_list = list(reader)
+         if cls.__name__ == "Rectangle":
+             list_keys = ['id', 'width', 'height', 'x', 'y']
+         elif cls.__name__ == "Square":
+             list_keys = ['id', 'size', 'x', 'y']
+         matrix = []
+         for csv_elem in csv_list:
+             dict_csv = {}
+             for i in enumerate(csv_elem):
+                 dict_csv[list_keys[kv[0]]] = int(kv[1])
+             matrix.append(dict_csv)
+         list_ins = []
+         for index in range(len(matrix)):
+             list_ins.append(cls.create(**matrix[index]))
+         return list_ins
