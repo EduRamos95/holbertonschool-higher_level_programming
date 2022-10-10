@@ -5,7 +5,8 @@ T10 : Class Square inherits from Rectangle
 T10 : Class constructor: def __init__(self, size, x=0, y=0, id=None)
 T10 : Modify method __str__ return '[Square] (<id>) <x>/<y> - <size>'
 T11 : adding public getter and setter 'size'
-T12 : adding the public method 'def update(self, *args, **kwargs)'
+T12 : adding public method 'def update(self, *args, **kwargs)'
+T14 : adding public method 'def to_dictionary(self)'
 """
 from models.rectangle import Rectangle
 
@@ -30,6 +31,8 @@ class Square(Rectangle):
         __str__
         @property: size
         @setter: size
+        update(self)
+        to_dictionary(self)
     """
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
@@ -75,3 +78,13 @@ class Square(Rectangle):
                         setattr(self, 'height', value)
                     else:
                         setattr(self, key, value)
+
+    def to_dictionary(self):
+        list_attr = ['id', 'size', 'x', 'y']
+        dict_square = {}
+        for key in list_attr:
+            if key == 'size':
+                dict_square[key] = getattr(self, 'width')
+            else:
+                dict_square[key] = getattr(self, key)
+        return (dict_square)
