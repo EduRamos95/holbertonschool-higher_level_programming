@@ -5,6 +5,7 @@ T1: Contains private class __nb_objects, and class constructor __init__
 T15: adding static method 'def to_json_string(list_dictionaries)'
 T16: adding class method 'def save_to_file(cls, list_objs)'
 T17: adding static method 'def from_json_string(json_string)'
+T18: adding class method 'def create(cls, **dictionary)'
 """
 import json
 
@@ -20,6 +21,7 @@ class Base():
         def from_json_string(json_string):
     Class method:
         def save_to_file(cls, list_objs):
+        def create(cls, **dictionary):
     """
     __nb_objects = 0
 
@@ -59,4 +61,16 @@ class Base():
         """
         if json_string is None or len(json_string) == 0:
             json_string = "[]"
-        return (json.loads(json_string))
+        return (json.loads(json_stringi))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        returns an instance with all attribute already set
+        """
+        if cls.__name__ == "Rectangle":
+            simple_create = cls(1, 1)
+        elif cls.__name__ == "Square":
+            simple_create = cls(1)
+        simple_create.update(**dictionary)
+        return (simple_create)
