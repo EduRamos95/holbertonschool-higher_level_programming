@@ -3,8 +3,6 @@
 return all table values (table 'states')
 parameters given to script: username, password, database
 """
-
-
 if __name__ == "__main__":
 	import MySQLdb
 	from sys import argv
