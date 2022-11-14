@@ -6,9 +6,9 @@
 -- the database name will be passed as an argument of the mysql command
 
 SELECT `g`.`name` AS `genre`,
-COUNT(`t`.`genre_id`) AS `number_shows`
+COUNT(`t`.`genre_id`) AS `number_of_shows`
 FROM `tv_genres` AS `g` 
 	INNER JOIN `tv_show_genres` AS `t`
 ON `g`.`id` = `t`.`genre_id`
- GROUP BY `genre` HAVING `number_shows` > 0
- ORDER BY `number_shows` DESC;
+ GROUP BY `genre` HAVING `number_of_shows` > 0
+ ORDER BY `number_of_shows` DESC;
