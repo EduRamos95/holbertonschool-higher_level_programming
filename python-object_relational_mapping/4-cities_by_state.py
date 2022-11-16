@@ -13,10 +13,11 @@ if __name__ == "__main__":
                          database=sys.argv[3])
 
     cursor = db.cursor()
-    will = """SELECT cities.id, cities.name, states.name
+    cmd_db = """SELECT cities.id, cities.name, states.name
             FROM cities JOIN states
             ON cities.state_id = states.id
             ORDER BY id ASC"""
+    cursor.execute(cmd_db)
     query_rows = cursor.fetchall()
     for row in query_rows:
         print(row)
