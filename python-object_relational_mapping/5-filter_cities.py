@@ -12,14 +12,15 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
     stateName = sys.argv[4]
-    cursor.execute("SELECT c.id, c.name, s.name\
+    cursor.execute("SELECT c.name \
                     FROM cities AS c\
-                    JOIN states AS s\
-                    ON c.state_id=s.id ORDER BY c.id;")
+                    INNER JOIN states AS s\
+                    ON c.state_id=s.id WHERE BINARY states.name \
+                    = BINARY %s ORDER BY c.id ASC;", (stateName,))
     lists = []
     query_rows = cursor.fetchall()
     for row in query_rows:
-        lists.append(row[1])
+        lists.append(row[0])
     print(", ".join(lists))
     cursor.close()
     db.close()
