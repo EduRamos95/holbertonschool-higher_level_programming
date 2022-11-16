@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """List all states using mysqldb"""
 
-
 if __name__ == "__main__":
     import MySQLdb
     from sys import argv
@@ -13,9 +12,9 @@ if __name__ == "__main__":
                          db=argv[3])
 
     cur = db.cursor()
-    cur.execute("SELECT id, name FROM states WHERE name=%s "
-                "COLLATE latin1_general_cs ORDER BY id ASC", (argv[4],))
+    cmd_database = "SELECT * FROM states WHERE name=%s ORDER BY id ASC"
+    cur.execute(cmd_database, (argv[4],))
     for row in cur.fetchall():
-        print("({}, '{}')".format(row[0], row[1]))
+        print(row)
     cursor.close()
     db.close()
