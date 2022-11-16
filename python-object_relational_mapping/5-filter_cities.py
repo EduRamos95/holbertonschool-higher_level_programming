@@ -12,11 +12,11 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
     stateName = sys.argv[4]
-    cursor.execute("SELECT c.name\
-                    FROM cities AS c\
-                    INNER JOIN states AS s\
-                    ON c.state_id=s.id WHERE BINARY states.name\
-                    = BINARY %s ORDER BY c.id ASC;", (stateName,))
+    cursor.execute("SELECT c.name "
+                   "FROM cities AS c "
+                   "INNER JOIN states AS s "
+                   "ON c.state_id=s.id WHERE BINARY s.name "
+                   "= BINARY %s ORDER BY c.id ASC", (stateName,))
     lists = []
     query_rows = cursor.fetchall()
     for row in query_rows:
