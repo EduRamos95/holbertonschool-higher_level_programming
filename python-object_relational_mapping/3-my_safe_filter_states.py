@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """List all states using mysqldb"""
 
+
 if __name__ == "__main__":
     import MySQLdb
     from sys import argv
