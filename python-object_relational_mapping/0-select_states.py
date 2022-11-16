@@ -5,8 +5,8 @@ parameters given to script: username, password, database
 """
 
 if __name__ == "__main__":
-	import MySQLdb
-	from sys import argv
+    import MySQLdb
+    from sys import argv
     # connect to database
     db = MySQLdb.connect(host="localhost",
                          port=3306,
