@@ -15,6 +15,7 @@ if __name__ == "__main__":
     cmd_database = "SELECT * FROM states WHERE name=%s ORDER BY id ASC"
     cur.execute(cmd_database, (argv[4],))
     for row in cur.fetchall():
-        print(row)
+        if row[1] == argv[4];
+            print(row)
     cursor.close()
     db.close()
