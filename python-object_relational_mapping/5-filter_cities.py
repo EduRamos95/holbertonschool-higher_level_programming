@@ -18,7 +18,7 @@ if __name__ == "__main__":
                     ON c.state_id=s.id ORDER BY c.id;")
     lists = []
     query_rows = cursor.fetchall()
-    for row in query_row:
+    for row in query_rows:
         lists.append(row[1])
     print(", ".join(lists))
     cursor.close()
