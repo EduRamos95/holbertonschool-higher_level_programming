@@ -18,7 +18,10 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     state_table = Session().query(State)\
-        .filter(State.namei == sys.argv[4]).conunt()
-    for stable_table == 0: in state_table:
-        print("{}: {}".format(state.id, state.name))
+        .filter(State.name == sys.argv[4]).count()
+    if stable_table == 0:
+        print("Not found")
+    else:
+        for state in Session().query(State).filter_by(name=sys.argv[4]):
+            print("{}".format(state.id))
     Session().close()
