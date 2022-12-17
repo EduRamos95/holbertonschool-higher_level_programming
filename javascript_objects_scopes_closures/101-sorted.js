@@ -4,8 +4,7 @@ const dictOut = {};
 for (const key in dictInput) {
   if (dictOut[`${dictInput[key]}`] === undefined) {
     dictOut[`${dictInput[key]}`] = [`${key}`];
-  }
-  else {
+  } else {
     dictOut[`${dictInput[key]}`].push(`${key}`);
   }
 }
