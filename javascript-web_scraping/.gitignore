@@ -1,4 +1,7 @@
 node_modules/
+cisfun
+loripsum
+my_file.txt
 package.json
 package-lock.json
 *__pycache__*
